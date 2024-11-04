@@ -3,7 +3,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 #
-# Copyright (c) 2021-present Kaleidos Ventures SL
+# Copyright (c) 2021-present Kaleidos INC
 
 import pytest
 import json
@@ -16,6 +16,7 @@ from .. import factories as f
 from taiga.base.utils import json
 from taiga.base import exceptions as exc
 
+import taiga.importers.trello.importer
 
 pytestmark = pytest.mark.django_db
 
@@ -193,6 +194,31 @@ def test_import_trello_project_without_project_id(client, settings):
 
     assert response.status_code == 400
     settings.CELERY_ENABLED = False
+
+
+def test_import_trello_transform_action_data_wrong_id_old(client, settings):
+    user = f.UserFactory.create()
+    client.login(user)
+
+    us = f.UserStoryFactory.create()
+    f.UserStoryStatusFactory.create(name="completed", project=us.project)
+    f.UserStoryStatusFactory.create(name="pending", project=us.project)
+    action = {
+        "data": {"old": {"idList": "notExists"}, "card": {"idList": "notExists"}},
+        "type": "updateCard",
+    }
+    statuses = {"1": {"name": "completed"}, "2": {"name": "pending"}}
+
+    with mock.patch("taiga.importers.trello.importer.TrelloClient") as TrelloClientMock:
+        TrelloClientMock.get.return_value = {"id": 1234, "name": "Not exists board"}
+        trello_importer = taiga.importers.trello.importer.TrelloImporter(user, "token")
+
+    assert (
+        trello_importer._transform_action_data(
+            us, action=action, statuses=statuses, options={}
+        )
+        is None
+    )
 
 
 def test_import_trello_project_with_celery_enabled(client, settings):

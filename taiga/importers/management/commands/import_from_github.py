@@ -3,7 +3,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 #
-# Copyright (c) 2021-present Kaleidos Ventures SL
+# Copyright (c) 2021-present Kaleidos INC
 
 from django.core.management.base import BaseCommand
 from django.conf import settings
@@ -18,7 +18,7 @@ class Command(BaseCommand):
         parser.add_argument('--token', dest="token", type=str,
                             help='Auth token')
         parser.add_argument('--project-id', dest="project_id", type=str,
-                            help='Project ID or full name (ex: kaleidos-ventures/taiga-back)')
+                            help='Project ID or full name (ex: taigaio/taiga-back)')
         parser.add_argument('--template', dest='template', default="kanban",
                             help='template to use: scrum or kanban (default kanban)')
         parser.add_argument('--type', dest='type', default="user_stories",

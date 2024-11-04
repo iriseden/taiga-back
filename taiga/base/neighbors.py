@@ -3,7 +3,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 #
-# Copyright (c) 2021-present Kaleidos Ventures SL
+# Copyright (c) 2021-present Kaleidos INC
 
 from collections import namedtuple
 
@@ -64,12 +64,12 @@ def get_neighbors(obj, results_set=None):
     right_object_id = row[3]
 
     try:
-        left = results_set.get(id=left_object_id)
+        left = results_set.filter(id=left_object_id).first()
     except ObjectDoesNotExist:
         left = None
 
     try:
-        right = results_set.get(id=right_object_id)
+        right = results_set.filter(id=right_object_id).first()
     except ObjectDoesNotExist:
         right = None
 

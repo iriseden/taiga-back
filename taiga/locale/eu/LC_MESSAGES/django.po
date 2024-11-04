@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: taiga-back\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-07 20:31+0000\n"
-"PO-Revision-Date: 2023-09-22 17:57+0000\n"
-"Last-Translator: David Barragán <david.barragan@kaleidos.net>\n"
+"PO-Revision-Date: 2024-07-09 12:49+0000\n"
+"Last-Translator: Alexander Gabilondo <alexgabi@openmailbox.org>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/taiga/taiga-back/"
 "eu/>\n"
 "Language: eu\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.1-dev\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: taiga/auth/api.py:79
 msgid "invalid login type"
@@ -132,10 +132,8 @@ msgid "expires at"
 msgstr "Iraungitzen da"
 
 #: taiga/auth/token_denylist/apps.py:74
-#, fuzzy
-#| msgid "Token is invalid"
 msgid "Token Denylist"
-msgstr "Identifikatzailea ez da baliozkoa"
+msgstr "Identifikatzailea ukatzeko zerrenda"
 
 #: taiga/auth/tokens.py:61
 msgid "Cannot create token with no type or lifetime"
@@ -993,6 +991,15 @@ msgid ""
 "    <p><small>%(signature)s</small></p>\n"
 "    "
 msgstr ""
+"\n"
+"    <h1>Inportatutako proiektuko datuak txertatzea</h1>\n"
+"    <p>Kaixo%(user)s,</p>\n"
+"    <h3>Inportatutako zure proiektuaren datuak behar bezala txertatu "
+"dira.</h3>\n"
+"    <a class=\"button\" href=\"%(url)s\" title=\"Go to the project %(project)"
+"s\">Joan %(project)s</a>\n"
+"    <p><small>%(signature)s</small></p>\n"
+"    "
 
 #: taiga/export_import/templates/emails/load_dump-body-text.jinja:9
 #, python-format
@@ -1009,6 +1016,17 @@ msgid ""
 "---\n"
 "%(signature)s\n"
 msgstr ""
+"\n"
+"Kaixo%(user)s,\n"
+"\n"
+"Inportatutako zure proiektuaren datuak behar bezala txertatu dira.\n"
+"\n"
+" %(project)s proiektua hemen ikusi dezakezu:\n"
+"\n"
+"%(url)s\n"
+"\n"
+"---\n"
+"%(signature)s\n"
 
 #: taiga/export_import/templates/emails/load_dump-subject.jinja:9
 #, python-format
@@ -1027,12 +1045,12 @@ msgstr "Eduki baliogabea. Izan behar da {\"key\": \"value\",...}"
 #: taiga/export_import/validators/validators.py:188
 #: taiga/projects/custom_attributes/validators.py:112
 msgid "It contains invalid custom fields."
-msgstr ""
+msgstr "Eremu pertsonalizatu baliogabeak ditu."
 
 #: taiga/export_import/validators/validators.py:268
 #: taiga/projects/validators.py:43
 msgid "Duplicated name"
-msgstr ""
+msgstr "Izen bikoiztua"
 
 #: taiga/export_import/validators/validators.py:303
 #, python-format
@@ -1040,6 +1058,8 @@ msgid ""
 "An Epic has a related story from an external project (%(project)s) and "
 "cannot be imported"
 msgstr ""
+"Epic batek kanpo-proiektu bati (%(project)s) lotutako historia du, eta ezin "
+"da inportatu"
 
 #: taiga/external_apps/api.py:32 taiga/external_apps/api.py:59
 #: taiga/external_apps/api.py:71
@@ -1155,6 +1175,9 @@ msgid ""
 "        <p><small>%(signature)s</small></p>\n"
 "    "
 msgstr ""
+"\n"
+"        <p><small>%(signature)s</small></p>\n"
+"    "
 
 #: taiga/feedback/templates/emails/feedback_notification-body-text.jinja:9
 #, python-format
@@ -1186,6 +1209,9 @@ msgid ""
 "---\n"
 "%(signature)s\n"
 msgstr ""
+"\n"
+"---\n"
+"%(signature)s\n"
 
 #: taiga/feedback/templates/emails/feedback_notification-subject.jinja:9
 #, python-format
@@ -1198,7 +1224,7 @@ msgstr ""
 
 #: taiga/hooks/api.py:43
 msgid "The payload is not valid json"
-msgstr ""
+msgstr "Payload-a ez da baliozko json-a"
 
 #: taiga/hooks/api.py:52 taiga/projects/epics/api.py:143
 #: taiga/projects/issues/api.py:139 taiga/projects/tasks/api.py:205
@@ -1218,6 +1244,11 @@ msgid ""
 "\n"
 "\"{comment_message}\""
 msgstr ""
+"[{user_name}]({user_url} \"Ikusi {user_name}'(r)en {platform} profila\") "
+"hemen dioenez [{platform}#{number}]({comment_url} \"Joan komentarioetara\"):"
+"\n"
+"\n"
+"\"{comment_message}\""
 
 #: taiga/hooks/event_hooks.py:75
 #, python-brace-format
@@ -1237,6 +1268,9 @@ msgid ""
 "Issue created by [{user_name}]({user_url} \"See {user_name}'s {platform} "
 "profile\") from [{platform}#{number}]({url} \"Go to issue\")."
 msgstr ""
+"Ondorengoak sortutako eskaera [{user_name}]({user_url} \"Ikusi "
+"{user_name}'(r)en {platform} profila\") hemengoa [{platform}#{number}]({url} "
+"\"Joan eskaerara\")."
 
 #: taiga/hooks/event_hooks.py:138
 #, python-brace-format
@@ -1249,11 +1283,14 @@ msgid ""
 "Issue modified by [{user_name}]({user_url} \"See {user_name}'s {platform} "
 "profile\") from [{platform}#{number}]({url} \"Go to issue\")."
 msgstr ""
+"Ondorengoak moldatutako eskera [{user_name}]({user_url} \"Ikus {user_name}(r)"
+"en {platform} profila\") hemengoa [{platform}#{number}]({url} \"Joan "
+"eskaerara\")."
 
 #: taiga/hooks/event_hooks.py:150
 #, python-brace-format
 msgid "Issue modified from {platform}."
-msgstr ""
+msgstr "Hemendik {platform} moldatutako eskaera."
 
 #: taiga/hooks/event_hooks.py:158
 #, python-brace-format
@@ -1261,11 +1298,14 @@ msgid ""
 "Issue closed by [{user_name}]({user_url} \"See {user_name}'s {platform} "
 "profile\") from [{platform}#{number}]({url} \"Go to issue\")."
 msgstr ""
+"Ondorengoak itxitako eskaera [{user_name}]({user_url} \"Ikus {user_name}(r)"
+"en {platform} profila\") hemendik [{platform}#{number}]({url} \"Joan "
+"eskaerara\")."
 
 #: taiga/hooks/event_hooks.py:162
 #, python-brace-format
 msgid "Issue closed from {platform}."
-msgstr ""
+msgstr "Hemendik {platform} itxitako eskaera."
 
 #: taiga/hooks/event_hooks.py:170
 #, python-brace-format
@@ -1273,11 +1313,14 @@ msgid ""
 "Issue reopened by [{user_name}]({user_url} \"See {user_name}'s {platform} "
 "profile\") from [{platform}#{number}]({url} \"Go to issue\")."
 msgstr ""
+"Ondorengoak berriz irekitako eskaera [{user_name}]({user_url} \"Ikus "
+"{user_name}(r)en {platform} profila\") hemendik [{platform}#{number}]({url} "
+"\"Joan eskaerara\")."
 
 #: taiga/hooks/event_hooks.py:174
 #, python-brace-format
 msgid "Issue reopened from {platform}."
-msgstr ""
+msgstr "Hemendik {platform} berriro irekitako eskaera."
 
 #: taiga/hooks/event_hooks.py:269
 msgid "Invalid issue information"
@@ -1385,6 +1428,11 @@ msgid ""
 "version.\n"
 "                Taiga does not support Jira releases from 8.6."
 msgstr ""
+"\n"
+"                Errore bat gertatu da; ziurrenik, Jiraren bertsio jasanezin "
+"baten ondorioz.\n"
+"                Taiga ez da bateragarria 8.6 baino berriagoak diren Jiraren "
+"bertsioekin."
 
 #: taiga/importers/jira/api.py:158
 msgid "Invalid project_type {}"
@@ -1419,6 +1467,14 @@ msgid ""
 "    <p><small>%(signature)s</small></p>\n"
 "    "
 msgstr ""
+"\n"
+"    <h1>Asana proiektua inportatu da</h1>\n"
+"    <p>Kaixo%(user)s,</p>\n"
+"    <h3>Zure Asanako proiektua behar bezala inportatu da.</h3>\n"
+"    <a class=\"button\" href=\"%(url)s\" title=\"Go to the project %(project)"
+"s\">Go to %(project)s</a>\n"
+"    <p><small>%(signature)s</small></p>\n"
+"    "
 
 #: taiga/importers/templates/emails/asana_import_success-body-text.jinja:9
 #, python-format
@@ -1435,6 +1491,17 @@ msgid ""
 "---\n"
 "%(signature)s\n"
 msgstr ""
+"\n"
+"Kaixo%(user)s,\n"
+"\n"
+"Zure Asanako proiektua behar bezala inportatu da.\n"
+"\n"
+" %(project)s proiektua hemen ikusi dezakezu:\n"
+"\n"
+"%(url)s\n"
+"\n"
+"---\n"
+"%(signature)s\n"
 
 #: taiga/importers/templates/emails/asana_import_success-subject.jinja:9
 #, python-format
@@ -1453,6 +1520,14 @@ msgid ""
 "    <p><small>%(signature)s</small></p>\n"
 "    "
 msgstr ""
+"\n"
+"    <h1>GitHub proiektua inportatu da</h1>\n"
+"    <p>Kaixo%(user)s,</p>\n"
+"    <h3>Zure GitHub proiektua behar bezala inportatu da.</h3>\n"
+"    <a class=\"button\" href=\"%(url)s\" title=\"Go to the project %(project)"
+"s\">Go to %(project)s</a>\n"
+"    <p><small>%(signature)s</small></p>\n"
+"    "
 
 #: taiga/importers/templates/emails/github_import_success-body-text.jinja:9
 #, python-format
@@ -1469,6 +1544,17 @@ msgid ""
 "---\n"
 "%(signature)s\n"
 msgstr ""
+"\n"
+"Kaixo%(user)s,\n"
+"\n"
+"Zure GitHub proiektua behar bezala inportatu da.\n"
+"\n"
+" %(project)s proiektua hemen ikusi dezakezu:\n"
+"\n"
+"%(url)s\n"
+"\n"
+"---\n"
+"%(signature)s\n"
 
 #: taiga/importers/templates/emails/github_import_success-subject.jinja:9
 #, python-format
@@ -1489,6 +1575,17 @@ msgid ""
 "    <p><small>%(signature)s</small></p>\n"
 "    "
 msgstr ""
+"\n"
+"    <h1>%(error_message)s</h1>\n"
+"    <p>Kaixo %(user)s,</p>\n"
+"    <p>Zure proiektua ez da behar bezala inportatu.</p>\n"
+"    <p>  %(product_name)saren  sistema-administratzaileei jakinarazi zaie.<"
+"br/> Mesedez, saiatu berriro edo jarri harremanetan laguntza-taldearekin "
+"helbide honetan.\n"
+"       <a href=\"mailto:%(support_email)s\" title=\"Support email\" style="
+"\"color: #83EEDE\">%(support_email)s</a></p>\n"
+"    <p><small>%(signature)s</small></p>\n"
+"    "
 
 #: taiga/importers/templates/emails/jira_import_success-body-html.jinja:12
 #, python-format
@@ -1502,6 +1599,14 @@ msgid ""
 "    <p><small>%(signature)s</small></p>\n"
 "    "
 msgstr ""
+"\n"
+"    <h1>Jira proiektua inportatua</h1>\n"
+"    <p>Kaixo%(user)s,</p>\n"
+"    <h3>Zure Jira proiektua behar bezala inportatu da.</h3>\n"
+"    <a class=\"button\" href=\"%(url)s\" title=\"Go to the project %(project)"
+"s\">Hona joan %(project)s</a>\n"
+"    <p><small>%(signature)s</small></p>\n"
+"    "
 
 #: taiga/importers/templates/emails/jira_import_success-body-text.jinja:9
 #, python-format
@@ -1518,6 +1623,17 @@ msgid ""
 "---\n"
 "%(signature)s\n"
 msgstr ""
+"\n"
+"Kaixo %(user)s,\n"
+"\n"
+"Zure Jira proiektua behar bezala inportatu da.\n"
+"\n"
+" %(project)s proiektua hemen ikusi dezakezu:\n"
+"\n"
+"%(url)s\n"
+"\n"
+"---\n"
+"%(signature)s\n"
 
 #: taiga/importers/templates/emails/jira_import_success-subject.jinja:9
 #, python-format
@@ -1536,6 +1652,14 @@ msgid ""
 "    <p><small>%(signature)s</small></p>\n"
 "    "
 msgstr ""
+"\n"
+"    <h1>Trello proiektua inportatua</h1>\n"
+"    <p>Kaixo %(user)s,</p>\n"
+"    <h3>Zure Trello proiektua behar bezala inportatu da.</h3>\n"
+"    <a class=\"button\" href=\"%(url)s\" title=\"Go to the project %(project)"
+"s\">Hona joan %(project)s</a>\n"
+"    <p><small>%(signature)s</small></p>\n"
+"    "
 
 #: taiga/importers/templates/emails/trello_import_success-body-text.jinja:9
 #, python-format
@@ -1552,6 +1676,17 @@ msgid ""
 "---\n"
 "%(signature)s\n"
 msgstr ""
+"\n"
+"Kaixo %(user)s,\n"
+"\n"
+"Zure Trello proiektua behar bezala inportatu da.\n"
+"\n"
+"%(project)s proiektua hemen ikusi dezakezu:\n"
+"\n"
+"%(url)s\n"
+"\n"
+"---\n"
+"%(signature)s\n"
 
 #: taiga/importers/templates/emails/trello_import_success-subject.jinja:9
 #, python-format
@@ -1559,22 +1694,19 @@ msgid "[%(project)s] Your Trello project has been imported"
 msgstr "[%(project)s] Trello proiektua ongi inportatua izan da."
 
 #: taiga/importers/trello/importer.py:57
-#, fuzzy, python-format
-#| msgid "Invalid Request: %s at %s"
+#, python-format
 msgid "Invalid Request: %(text)s at %(url)s"
-msgstr "Eskaera baliogabea %s hemen: %s"
+msgstr "Eskaera baliogabea: hemengo  %(url)s hau  %(text)s"
 
 #: taiga/importers/trello/importer.py:59 taiga/importers/trello/importer.py:61
-#, fuzzy, python-format
-#| msgid "Unauthorized: %s at %s"
+#, python-format
 msgid "Unauthorized: %(text)s at %(url)s"
-msgstr "Baimen gabea %s hemen: %s"
+msgstr "Baimen gabea: hemengo  %(url)s hau  %(text)s"
 
 #: taiga/importers/trello/importer.py:63 taiga/importers/trello/importer.py:65
-#, fuzzy, python-format
-#| msgid "Resource Unavailable: %s at %s"
+#, python-format
 msgid "Resource Unavailable: %(text)s at %(url)s"
-msgstr "Baliabide atzitu ezina %s hemen: %s"
+msgstr "Baliabide atzitu ezina: hemengo  %(url)s hau  %(text)s"
 
 #: taiga/importers/trello/tasks.py:31 taiga/importers/trello/tasks.py:32
 msgid "Error importing Trello project"
@@ -1746,7 +1878,7 @@ msgstr "Administratzailearen rolak"
 
 #: taiga/projects/admin.py:89
 msgid "Privacy"
-msgstr ""
+msgstr "Pribatutasuna"
 
 #: taiga/projects/admin.py:100
 msgid "Modules"
@@ -1801,11 +1933,11 @@ msgstr "Irudi formatu baliogabea"
 
 #: taiga/projects/api.py:237
 msgid "Invalid template name"
-msgstr ""
+msgstr "Txantiloi izen baliogabea"
 
 #: taiga/projects/api.py:240
 msgid "Invalid template description"
-msgstr ""
+msgstr "Txantiloi deskribapen baliogabea"
 
 #: taiga/projects/api.py:404 taiga/projects/api.py:1093
 msgid "Invalid user id"
@@ -1817,52 +1949,54 @@ msgstr "Erabiltzaile hori ez dago"
 
 #: taiga/projects/api.py:414
 msgid "The user must already be a project member"
-msgstr ""
+msgstr "Erabiltzaileak dagoeneko proiektuko kide izan behar du"
 
 #: taiga/projects/api.py:678
 msgid "The default swimlane cannot be deleted."
-msgstr ""
+msgstr "Lehenetsitako erraila ezin da ezabatu."
 
 #: taiga/projects/api.py:708
 msgid "You can't delete the default due date status of a user story"
-msgstr ""
+msgstr "Ezin duzu kendu epemuga lehenetsia erabiltzailearen istorio batetik"
 
 #: taiga/projects/api.py:724
 msgid "Project does already have due dates"
-msgstr ""
+msgstr "Proiektuak dagoeneko baditu mugaegunak"
 
 #: taiga/projects/api.py:784
 msgid "You can't delete the default due date status of a task"
-msgstr ""
+msgstr "Ezin duzu ezabatu ataza baten lehenetsitako epemuga"
 
 #: taiga/projects/api.py:800
 msgid "Project does already have task due dates"
-msgstr ""
+msgstr "Proiektuak dagoeneko baditu atazaren epemugak"
 
 #: taiga/projects/api.py:925
 msgid "You can't delete the default due date status of an issue"
-msgstr ""
+msgstr "Ezin duzu ezabatu eskaera baten lehenetsitako epemuga"
 
 #: taiga/projects/api.py:941
 msgid "Project does already have issue due dates"
-msgstr ""
+msgstr "Proiektuak dagoeneko baditu eskaerarentzat epemugak"
 
 #: taiga/projects/api.py:1053 taiga/projects/validators.py:230
 msgid ""
 "To add members to a project, first you have to verify your email address"
 msgstr ""
+"Proiektu batean kideak gehitzeko, lehenik eta behin zure helbide "
+"elektronikoa egiaztatu behar duzu"
 
 #: taiga/projects/api.py:1111
 msgid ""
 "This user can't be removed from the following projects, because that would "
 "leave them without any active admin: {}."
 msgstr ""
+"Erabiltzaile hau ezin da proiektu hauetatik kendu, administratzaile "
+"aktiborik gabe utziko lukeelako: {}."
 
 #: taiga/projects/api.py:1125
-#, fuzzy
-#| msgid "comment is required"
 msgid "Email is required"
-msgstr "iruzkina nahitaezkoa da"
+msgstr "Helbide elektronikoa nahitaezkoa da"
 
 #: taiga/projects/api.py:1136
 msgid ""
@@ -1874,7 +2008,7 @@ msgstr ""
 
 #: taiga/projects/api.py:1171
 msgid "You don't have permissions to see that."
-msgstr ""
+msgstr "Ez duzu hori ikusteko baimenik."
 
 #: taiga/projects/attachments/api.py:46
 msgid "Partial updates are not supported"
@@ -1882,11 +2016,11 @@ msgstr "Zatikako eguneratzeak ezin dira egin."
 
 #: taiga/projects/attachments/api.py:61
 msgid "Object id issue doesn't exist"
-msgstr ""
+msgstr "Eskaeraren ID zenbakia ez existitzen"
 
 #: taiga/projects/attachments/api.py:64
 msgid "Project ID does not match between object and project"
-msgstr ""
+msgstr "Proiektuaren IDa ez dator bat objektuaren eta proiektuaren artean"
 
 #: taiga/projects/attachments/models.py:39 taiga/projects/contact/models.py:26
 #: taiga/projects/custom_attributes/models.py:36
@@ -1957,6 +2091,9 @@ msgid ""
 "Invalid attachment id to move after. The attachment must belong to the same "
 "item (epic, userstory, task, issue or wiki page)."
 msgstr ""
+"Mugitu beharreko fitxategi erantsiaren IDa ez da baliozkoa. Erantsitako "
+"fitxategiak elementu berekoa izan behar du (eginkizuna, erabiltzailearen-"
+"istorioa, ataza, eskaera edo wiki orria)."
 
 #: taiga/projects/attachments/validators.py:61
 #, fuzzy
@@ -2094,15 +2231,15 @@ msgstr "URL"
 
 #: taiga/projects/custom_attributes/choices.py:26
 msgid "Dropdown"
-msgstr ""
+msgstr "Goitibeherakoa"
 
 #: taiga/projects/custom_attributes/choices.py:27
 msgid "Checkbox"
-msgstr ""
+msgstr "Kontrol-laukia"
 
 #: taiga/projects/custom_attributes/choices.py:28
 msgid "Number"
-msgstr ""
+msgstr "Zenbakia"
 
 #: taiga/projects/custom_attributes/models.py:29
 #: taiga/projects/issues/models.py:64
@@ -2402,7 +2539,7 @@ msgstr "Mala hori ez da baliozkoa proiektu honetan."
 
 #: taiga/projects/issues/validators.py:69
 msgid "All the issues must be from the same project"
-msgstr ""
+msgstr "Eskaera guztiak proiektu berekoak izan behar dira"
 
 #: taiga/projects/likes/models.py:30
 msgid "Like"
@@ -2465,11 +2602,13 @@ msgstr "proiektua edo proiektu__goitizena ezinbestekoa da"
 
 #: taiga/projects/mixins/on_destroy.py:32
 msgid "Query param 'moveTo' is required"
-msgstr ""
+msgstr "\"moveTo\" kontsulta-parametroa beharrezkoa da"
 
 #: taiga/projects/mixins/on_destroy.py:84
 msgid "Cannot set swimlane to None if there are available swimlanes"
 msgstr ""
+"Ezin da fluxu-diagrama ezarri Bat ere ez badago fluxu-diagramak erabilgarri "
+"badaude"
 
 #: taiga/projects/mixins/ordering.py:36
 #, python-brace-format
@@ -2542,7 +2681,7 @@ msgstr "gertakarien mota lehenetsia"
 
 #: taiga/projects/models.py:156
 msgid "default swimlane"
-msgstr ""
+msgstr "fluxu-diagrama lehenetsia"
 
 #: taiga/projects/models.py:172
 msgid "logo"
@@ -2689,7 +2828,7 @@ msgstr "egunak epemugarako"
 
 #: taiga/projects/models.py:944
 msgid "user story status"
-msgstr ""
+msgstr "erabiltzailearen historiaren egoera"
 
 #: taiga/projects/models.py:996
 msgid "default owner's role"
@@ -2778,27 +2917,27 @@ msgstr "Batere ez"
 
 #: taiga/projects/notifications/choices.py:35
 msgid "Assigned"
-msgstr ""
+msgstr "Esleituta"
 
 #: taiga/projects/notifications/choices.py:36
 msgid "Mentioned"
-msgstr ""
+msgstr "Aipatuta"
 
 #: taiga/projects/notifications/choices.py:37
 msgid "Added as watcher"
-msgstr ""
+msgstr "Ikusle gisa gehitu da"
 
 #: taiga/projects/notifications/choices.py:38
 msgid "Added as member"
-msgstr ""
+msgstr "Kide gisa gehitu da"
 
 #: taiga/projects/notifications/choices.py:39
 msgid "Comment"
-msgstr ""
+msgstr "Iruzkindu"
 
 #: taiga/projects/notifications/choices.py:40
 msgid "Mentioned in comment"
-msgstr ""
+msgstr "Iruzkinean aipatua"
 
 #: taiga/projects/notifications/models.py:62
 msgid "created date time"
@@ -2840,6 +2979,14 @@ msgid ""
 "%(subject)s\">See epic</a>\n"
 "    "
 msgstr ""
+"\n"
+"    <h1>Epika eguneratuta</h1>\n"
+"    <p>Kaixo %(user)s, <br> %(changer)s -ek epika bat eguneratu du %(project)"
+"s proiektuan</p>\n"
+"    <p>Epic #%(ref)s %(subject)s</p>\n"
+"    <a class=\"button\" href=\"%(url)s\" title=\"See Epic #%(ref)s: "
+"%(subject)s\">Ikusi epika</a>\n"
+"    "
 
 #: taiga/projects/notifications/templates/emails/epics/epic-change-body-text.jinja:11
 #, python-format
@@ -2877,6 +3024,15 @@ msgid ""
 "    <p><small>%(signature)s</small></p>\n"
 "    "
 msgstr ""
+"\n"
+"    <h1>Epika berria sortu da</h1>\n"
+"    <p>Kaixo %(user)s,<br />%(changer)s -k epika berria sortu du  %(project)"
+"s proiektuan</p>\n"
+"    <p>Epic #%(ref)s %(subject)s</p>\n"
+"    <a class=\"button\" href=\"%(url)s\" title=\"See Epic #%(ref)s %(subject)"
+"s\">Ikusi epika</a>\n"
+"    <p><small>%(signature)s</small></p>\n"
+"    "
 
 #: taiga/projects/notifications/templates/emails/epics/epic-create-body-text.jinja:9
 #, python-format
@@ -2889,6 +3045,13 @@ msgid ""
 "---\n"
 "%(signature)s\n"
 msgstr ""
+"\n"
+"Epika berria sortu da\n"
+"Kaixo %(user)s, %(changer)s-k epika berria sortu du %(project)s proiektuan\n"
+"Ikusi epika #%(ref)s %(subject)s at %(url)s\n"
+"\n"
+"---\n"
+"%(signature)s\n"
 
 #: taiga/projects/notifications/templates/emails/epics/epic-create-subject.jinja:9
 #, python-format
@@ -2910,6 +3073,13 @@ msgid ""
 "    <p><small>%(signature)s</small></p>\n"
 "    "
 msgstr ""
+"\n"
+"    <h1>Epika ezabatu da</h1>\n"
+"    <p>Kaixo %(user)s,<br />%(changer)s -k epika bat ezabatu du %(project)s "
+"proiektuan</p>\n"
+"    <p>Epika #%(ref)s %(subject)s</p>\n"
+"    <p><small>%(signature)s</small></p>\n"
+"    "
 
 #: taiga/projects/notifications/templates/emails/epics/epic-delete-body-text.jinja:9
 #, python-format
@@ -2922,6 +3092,13 @@ msgid ""
 "---\n"
 "%(signature)s\n"
 msgstr ""
+"\n"
+"Epika ezabatu da\n"
+"Kaixo %(user)s, %(changer)s -k epika bat ezabatu du %(project)s proiektuan\n"
+"Epika #%(ref)s %(subject)s\n"
+"\n"
+"---\n"
+"%(signature)s\n"
 
 #: taiga/projects/notifications/templates/emails/epics/epic-delete-subject.jinja:9
 #, python-format
@@ -2943,6 +3120,13 @@ msgid ""
 "%(subject)s\">See issue</a>\n"
 "    "
 msgstr ""
+"\n"
+"    <h1>Eskaera eguneratu da %(project)s proiektuan</h1>\n"
+"    <p>Kaixo %(user)s, <br> %(changer)s-k eskaera bat eguneratu du:</p>\n"
+"    <p><strong>#%(ref)s %(subject)s</strong></p>\n"
+"    <a class=\"button\" href=\"%(url)s\" title=\"See Issue #%(ref)s: "
+"%(subject)s\">Ikusi eskaera</a>\n"
+"    "
 
 #: taiga/projects/notifications/templates/emails/issues/issue-change-body-text.jinja:11
 #, python-format
@@ -2956,6 +3140,14 @@ msgid ""
 "\n"
 "See issue at %(url)s\n"
 msgstr ""
+"\n"
+"Eskaera eguneratu da %(project)s proiektuan\n"
+"\n"
+"Kaixo %(user)s, %(changer)s-ek eskaera bat eguneratu du:\n"
+"\n"
+"#%(ref)s %(subject)s\n"
+"\n"
+"Ikusi hemen eskaera %(url)s\n"
 
 #: taiga/projects/notifications/templates/emails/issues/issue-change-subject.jinja:9
 #, python-format
@@ -2978,6 +3170,14 @@ msgid ""
 "    <p><small>%(signature)s</small></p>\n"
 "    "
 msgstr ""
+"\n"
+"    <h1>Eskaera berria sortu da %(project)s proiektuan</h1>\n"
+"    <p>Kaixo %(user)s,<br />%(changer)s -k eskaera berria sortu du:</p>\n"
+"    <p><strong>#%(ref)s %(subject)s</strong></p>\n"
+"    <a class=\"button\" href=\"%(url)s\" title=\"See Issue #%(ref)s "
+"%(subject)s\">Ikusi eskaera</a>\n"
+"    <p><small>%(signature)s</small></p>\n"
+"    "
 
 #: taiga/projects/notifications/templates/emails/issues/issue-create-body-text.jinja:9
 #, python-format
@@ -2994,6 +3194,17 @@ msgid ""
 "---\n"
 "%(signature)s\n"
 msgstr ""
+"\n"
+"Eskaera berria sortu da %(project)s proiektuan\n"
+"\n"
+"Kaixo %(user)s, %(changer)s -k eskaera berria sortu du:\n"
+"\n"
+"#%(ref)s %(subject)s\n"
+"\n"
+"Ikusi eskaera hemen %(url)s\n"
+"\n"
+"---\n"
+"%(signature)s\n"
 
 #: taiga/projects/notifications/templates/emails/issues/issue-create-subject.jinja:9
 #, python-format
@@ -3014,6 +3225,12 @@ msgid ""
 "    <p><small>%(signature)s</small></p>\n"
 "    "
 msgstr ""
+"\n"
+"    <h1>Eskaera ezabatu da %(project)s proiektuan</h1>\n"
+"    <p>Kaixo %(user)s,<br />%(changer)s -k eskaera bat ezabatu du:</p>\n"
+"    <p><strong>#%(ref)s %(subject)s</strong></p>\n"
+"    <p><small>%(signature)s</small></p>\n"
+"    "
 
 #: taiga/projects/notifications/templates/emails/issues/issue-delete-body-text.jinja:9
 #, python-format
@@ -3028,6 +3245,15 @@ msgid ""
 "---\n"
 "%(signature)s\n"
 msgstr ""
+"\n"
+"Eskaera ezabatu da %(project)s proiektuan\n"
+"\n"
+"Kaixo %(user)s, %(changer)s -k ezabatu du eskaera bat:\n"
+"\n"
+"#%(ref)s %(subject)s\n"
+"\n"
+"---\n"
+"%(signature)s\n"
 
 #: taiga/projects/notifications/templates/emails/issues/issue-delete-subject.jinja:9
 #, python-format
@@ -3049,6 +3275,13 @@ msgid ""
 "sprint</a>\n"
 "    "
 msgstr ""
+"\n"
+"    <h1>Sprinta eguneratu da %(project)s proiektuan</h1>\n"
+"    <p>Kaixo %(user)s, <br> %(changer)s -k sprint bat eguneratu du:</p>\n"
+"    <p><strong>%(name)s</strong></p>\n"
+"    <a class=\"button\" href=\"%(url)s\" title=\"See Sprint: %(name)s\""
+">Ikusi sprinta</a>\n"
+"    "
 
 #: taiga/projects/notifications/templates/emails/milestones/milestone-change-body-text.jinja:11
 #, python-format
@@ -3062,6 +3295,14 @@ msgid ""
 "\n"
 "See sprint at %(url)s\n"
 msgstr ""
+"\n"
+"Sprinta eguneratu da %(project)s proiektuan\n"
+"\n"
+"Kaixo %(user)s, %(changer)s-k sprint bat eguneratu du:\n"
+"\n"
+"%(name)s\n"
+"\n"
+"Ikusi sprinta hemen %(url)s\n"
 
 #: taiga/projects/notifications/templates/emails/milestones/milestone-change-subject.jinja:9
 #, python-format
@@ -3084,6 +3325,14 @@ msgid ""
 "    <p><small>%(signature)s</small></p>\n"
 "    "
 msgstr ""
+"\n"
+"    ....<h1>Sprint berria sortu da %(project)s</h1>\n"
+".... <p>Kaixo %(user)s,<br />%(changer)s-ek esprint berri bat sortu du</p>\n"
+".... <p><strong>%(name)s</strong></p>\n"
+"....<a class=\"button\" href=\"%(url)s\" title=\"Ikusi Sprint %(name)s\""
+">Ikusi Sprint</a>\n"
+"....   <p><small>%(signature)s</small></p>\n"
+"    "
 
 #: taiga/projects/notifications/templates/emails/milestones/milestone-create-body-text.jinja:9
 #, python-format

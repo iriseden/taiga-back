@@ -3,7 +3,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 #
-# Copyright (c) 2021-present Kaleidos Ventures SL
+# Copyright (c) 2021-present Kaleidos INC
 
 from django.core.exceptions import ObjectDoesNotExist
 
@@ -141,6 +141,9 @@ class CustomAttributesValuesWebhookSerializerMixin(serializers.LightSerializer):
         raise NotImplementedError()
 
     def get_custom_attributes_values(self, obj):
+        if not obj:
+            return None
+
         def _use_name_instead_id_as_key_in_custom_attributes_values(custom_attributes, values):
             ret = {}
             for attr in custom_attributes:

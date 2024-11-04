@@ -34,7 +34,7 @@ msgstr ""
 "Project-Id-Version: taiga-back\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-07 20:31+0000\n"
-"PO-Revision-Date: 2023-07-25 21:07+0000\n"
+"PO-Revision-Date: 2024-04-19 12:03+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/taiga/taiga-back/"
 "de/>\n"
@@ -43,7 +43,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: taiga/auth/api.py:79
 msgid "invalid login type"
@@ -889,6 +889,7 @@ msgstr ""
 "kannst sie hier herunterladen:\n"
 "\n"
 "%(url)s\n"
+"\n"
 "Die Datei wird am %(deletion_date)s gelöscht.\n"
 "\n"
 "---\n"
@@ -2098,7 +2099,7 @@ msgstr "Inhaltsart"
 
 #: taiga/projects/attachments/models.py:50
 msgid "object id"
-msgstr "Objekt-Nr."
+msgstr "Objekt-ID"
 
 #: taiga/projects/attachments/models.py:56
 #: taiga/projects/custom_attributes/models.py:43
@@ -3115,6 +3116,8 @@ msgid ""
 "\n"
 "[%(project)s] Created the epic #%(ref)s \"%(subject)s\"\n"
 msgstr ""
+"\n"
+"[%(project)s] erzeugte das Epic #%(ref)s \"%(subject)s\"\n"
 
 #: taiga/projects/notifications/templates/emails/epics/epic-delete-body-html.jinja:12
 #, python-format
@@ -3883,6 +3886,17 @@ msgid ""
 "---\n"
 "%(signature)s\n"
 msgstr ""
+"\n"
+"Neue Wiki-Seite erstellt Seite auf %(project)s\n"
+"\n"
+"Hallo %(user)s, %(changer)s hat eine neue Wiki-Seite erstellt:\n"
+"\n"
+"%(page)s\n"
+"\n"
+"Siehe Wiki-Seite bei %(url)s\n"
+"\n"
+"---\n"
+"%(signature)s\n"
 
 #: taiga/projects/notifications/templates/emails/wiki/wikipage-create-subject.jinja:9
 #, python-format
@@ -4040,10 +4054,9 @@ msgstr "Zeitleiste"
 
 #: taiga/projects/settings/choices.py:23
 msgid "Epics"
-msgstr ""
+msgstr "Epics"
 
 #: taiga/projects/settings/choices.py:24
-#, fuzzy
 msgid "Backlog"
 msgstr "Backlog"
 
@@ -4153,6 +4166,7 @@ msgstr "Ungültige user story id."
 #: taiga/projects/tasks/validators.py:98
 msgid "Invalid task status id. The status must belong to the same project."
 msgstr ""
+"Ungültige Aufgabenstatus-Id. Der Status muss zum selben Projekt gehören."
 
 #: taiga/projects/tasks/validators.py:112
 msgid "Invalid user story id. The user story must belong to the same project."
@@ -4370,6 +4384,9 @@ msgid ""
 "p>\n"
 "    "
 msgstr ""
+"\n"
+"        <p>Ab jetzt ist Ihr neuer Status für dieses Projekt \"admin\".</p>\n"
+"    "
 
 #: taiga/projects/templates/emails/transfer_accept-body-text.jinja:9
 #, python-format
@@ -4379,6 +4396,10 @@ msgid ""
 "%(new_owner_name)s has accepted your offer and will become the new project "
 "owner of \"%(project_name)s\".\n"
 msgstr ""
+"\n"
+"Hallo %(old_owner_name)s\n"
+"%(new_owner_name)s hat Ihr Angebot akzeptiert und wird der neue "
+"Projektleiter von \"%(project_name)s\".\n"
 
 #: taiga/projects/templates/emails/transfer_accept-body-text.jinja:15
 #, python-format
@@ -4390,6 +4411,8 @@ msgid ""
 "\n"
 "From now on, your new status for this project will be \"admin\".\n"
 msgstr ""
+"\n"
+"Ab sofort ist Ihr neuer Status für dieses Projekt \"admin\".\n"
 
 #: taiga/projects/templates/emails/transfer_accept-subject.jinja:9
 #, python-format
@@ -4397,6 +4420,8 @@ msgid ""
 "\n"
 "[%(project)s] Project ownership transfer offer accepted!\n"
 msgstr ""
+"\n"
+"[%(project)s Angebot zum Projektleiter-Transfer ist akzeptiert!\n"
 
 #: taiga/projects/templates/emails/transfer_reject-body-html.jinja:12
 #, python-format
@@ -4407,6 +4432,11 @@ msgid ""
 "new project owner of \"%(project_name)s\".</p>\n"
 "    "
 msgstr ""
+"\n"
+"        <p>Hallo %(owner_name)s,</p>\n"
+"        <p>%(rejecter_name)s hat Ihr Angebot abgelehnt und wird nicht der "
+"neue Projektleiter von \"%(project_name)s\".</p>\n"
+"    "
 
 #: taiga/projects/templates/emails/transfer_reject-body-html.jinja:18
 #, python-format
@@ -4415,6 +4445,9 @@ msgid ""
 "    <p>%(rejecter_name)s says:</p>\n"
 "    "
 msgstr ""
+"\n"
+"    <p>%(rejecter_name)s sagt:</p>\n"
+"    "
 
 #: taiga/projects/templates/emails/transfer_reject-body-html.jinja:24
 msgid ""
@@ -4423,11 +4456,15 @@ msgid ""
 "different person.</p>\n"
 "    "
 msgstr ""
+"\n"
+"    <p> Wenn Sie wollen, können Sie immer noch versuchen, die Projektleitung "
+"auf eine andere Person zu übertragen.</p>\n"
+"    "
 
 #: taiga/projects/templates/emails/transfer_reject-body-html.jinja:29
 #: taiga/projects/templates/emails/transfer_reject-body-html.jinja:30
 msgid "Request transfer to a different person"
-msgstr ""
+msgstr "Übertragung auf eine andere Person anfordern"
 
 #: taiga/projects/templates/emails/transfer_reject-body-text.jinja:9
 #, python-format
@@ -4437,11 +4474,15 @@ msgid ""
 "%(rejecter_name)s has declined your offer and will not become the new "
 "project owner of \"%(project_name)s\".\n"
 msgstr ""
+"\n"
+"Hallo %(owner_name)s\n"
+"%(rejecter_name)s hat Ihr Angebot abgelehnt und wird nicht der neue "
+"Projektleiter von \"%(project_name)s\".\n"
 
 #: taiga/projects/templates/emails/transfer_reject-body-text.jinja:15
 #, python-format
 msgid "%(rejecter_name)s says:"
-msgstr ""
+msgstr "%(rejecter_name)s sagt:"
 
 #: taiga/projects/templates/emails/transfer_reject-body-text.jinja:19
 msgid ""
@@ -4449,6 +4490,9 @@ msgid ""
 "If you want, you can still try to transfer the project ownership to a "
 "different person.\n"
 msgstr ""
+"\n"
+"Wenn Sie wollen, können Sie immer noch versuchen, die Projektleitung an eine "
+"andere Person zu übertragen.\n"
 
 #: taiga/projects/templates/emails/transfer_reject-body-text.jinja:23
 msgid "Request transfer to a different person:"
@@ -4460,6 +4504,8 @@ msgid ""
 "\n"
 "[%(project)s] Project ownership transfer declined\n"
 msgstr ""
+"\n"
+"[%(project)s] Projekt-Leitungsübertragung abgelehnt\n"
 
 #: taiga/projects/templates/emails/transfer_request-body-html.jinja:12
 #, python-format
@@ -4470,6 +4516,11 @@ msgid ""
 "\"%(project_name)s\".</p>\n"
 "    "
 msgstr ""
+"\n"
+"        <p>Hallo %(owner_name)s,</p>\n"
+"<p>%(requester_name)s hat beantragt, der Projektleiter von \"%(project_name)"
+"s\" zu werden.</p>\n"
+"    "
 
 #: taiga/projects/templates/emails/transfer_request-body-html.jinja:17
 msgid ""
@@ -4478,6 +4529,10 @@ msgid ""
 "project transfer from the administration panel.</p>\n"
 "    "
 msgstr ""
+"\n"
+"        <p>Bitte klicken Sie auf \"Weiter\", wenn Sie den Projekttransfer "
+"vom Administrationspanel starten möchten.</p>\n"
+"    "
 
 #: taiga/projects/templates/emails/transfer_request-body-html.jinja:22
 #: taiga/projects/templates/emails/transfer_start-body-html.jinja:30
@@ -4492,6 +4547,10 @@ msgid ""
 "%(requester_name)s has requested to become the project owner of "
 "\"%(project_name)s\".\n"
 msgstr ""
+"\n"
+"Hallo %(owner_name)s\n"
+"%(requester_name)s hat beantragt, der Projektleiter von \"%(project_name)s\" "
+"zu werden.\n"
 
 #: taiga/projects/templates/emails/transfer_request-body-text.jinja:14
 msgid ""
@@ -4499,6 +4558,9 @@ msgid ""
 "Please, go to your project settings if you would like to start the project "
 "transfer from the administration panel.\n"
 msgstr ""
+"\n"
+"Bitte gehen Sie zu Ihren Projekteinstellungen, wenn Sie den Projekttransfer "
+"vom Administrationspanel aus starten möchten.\n"
 
 #: taiga/projects/templates/emails/transfer_request-body-text.jinja:18
 msgid "Go to your project settings:"
@@ -4510,6 +4572,8 @@ msgid ""
 "\n"
 "[%(project)s] Project ownership transfer request\n"
 msgstr ""
+"\n"
+"[%(project)s Antrag auf Übertragung des Projekts\n"
 
 #: taiga/projects/templates/emails/transfer_start-body-html.jinja:12
 #, python-format
@@ -4520,6 +4584,11 @@ msgid ""
 "would like you to become the new project owner.</p>\n"
 "    "
 msgstr ""
+"\n"
+"        <p>Hallo %(receiver_name)s,</p>\n"
+"        <p>%(owner_name)s, der aktuelle Projektleiter bei \"%(project_name)"
+"s\" möchte, dass Sie der neue Projektleiter werden.</p>\n"
+"    "
 
 #: taiga/projects/templates/emails/transfer_start-body-html.jinja:18
 #, python-format
@@ -4539,6 +4608,10 @@ msgid ""
 "proposal.</p>\n"
 "    "
 msgstr ""
+"\n"
+"        <p>Bitte klicken Sie auf \"Weiter\", um diesen Vorschlag zu "
+"akzeptieren oder abzulehnen.</p>\n"
+"    "
 
 #: taiga/projects/templates/emails/transfer_start-body-text.jinja:9
 #, python-format
@@ -4548,11 +4621,15 @@ msgid ""
 "%(owner_name)s, the current project owner at \"%(project_name)s\" would like "
 "you to become the new project owner.\n"
 msgstr ""
+"\n"
+"Hallo %(receiver_name)s\n"
+"%(owner_name)s, der aktuelle Projektleiter von \"%(project_name)s\" möchte, "
+"dass Sie der neue Projektleiter werden.\n"
 
 #: taiga/projects/templates/emails/transfer_start-body-text.jinja:14
 #, python-format
 msgid "%(owner_name)s says:"
-msgstr ""
+msgstr "%(owner_name)s sagt:"
 
 #: taiga/projects/templates/emails/transfer_start-body-text.jinja:19
 msgid ""
@@ -4560,10 +4637,13 @@ msgid ""
 "Please, go to the following link to either accept or reject this proposal.</"
 "p>\n"
 msgstr ""
+"\n"
+"Bitte gehen Sie auf den folgenden Link, um diesen Vorschlag entweder zu "
+"akzeptieren oder abzulehnen.</p>\n"
 
 #: taiga/projects/templates/emails/transfer_start-body-text.jinja:23
 msgid "Accept or reject the project ownership transfer:"
-msgstr ""
+msgstr "Akzeptieren oder lehnen Sie den Projektleitungstransfer ab:"
 
 #: taiga/projects/templates/emails/transfer_start-subject.jinja:9
 #, python-format
@@ -4571,6 +4651,8 @@ msgid ""
 "\n"
 "[%(project)s] Project ownership transfer offer\n"
 msgstr ""
+"\n"
+"[%(project)s Angebot der Übertragung der Projektleitung\n"
 
 #. Translators: Name of scrum project template.
 #: taiga/projects/translations.py:19
@@ -4825,6 +4907,7 @@ msgstr ""
 #: taiga/projects/userstories/api.py:198
 msgid "You don't have permissions to set this swimlane to this user story."
 msgstr ""
+"Sie haben keine Berechtigung, diese Swimlane auf diese User-Story zu setzen."
 
 #: taiga/projects/userstories/api.py:274
 #, python-brace-format
@@ -4871,15 +4954,15 @@ msgstr "erzeugt aus Ticket"
 
 #: taiga/projects/userstories/models.py:135
 msgid "generated from task"
-msgstr ""
+msgstr "erzeugt von der Aufgabe"
 
 #: taiga/projects/userstories/models.py:136
 msgid "reference from task"
-msgstr ""
+msgstr "Referenz der Aufgabe"
 
 #: taiga/projects/userstories/models.py:144
 msgid "swimlane"
-msgstr ""
+msgstr "Swimlane"
 
 #: taiga/projects/userstories/validators.py:33
 msgid "There's no user story with that id"
@@ -4895,7 +4978,7 @@ msgstr ""
 #: taiga/projects/userstories/validators.py:87
 #: taiga/projects/userstories/validators.py:197
 msgid "Invalid swimlane id. The swimlane must belong to the same project."
-msgstr ""
+msgstr "Ungültige Swimlane. Die Swimlane muss zu demselben Projekt gehören."
 
 #: taiga/projects/userstories/validators.py:130
 msgid ""
@@ -4908,32 +4991,37 @@ msgstr ""
 #: taiga/projects/userstories/validators.py:140
 #: taiga/projects/userstories/validators.py:226
 msgid "You can't use after and before at the same time."
-msgstr ""
+msgstr "Sie können nach und vor nicht gleichzeitig verwenden."
 
 #: taiga/projects/userstories/validators.py:153
-#, fuzzy
 msgid ""
 "Invalid user story id to move before. The user story must belong to the same "
 "project and milestone."
 msgstr ""
-"Ungültige User-Story Status-ID. Der Status muss zum gleichen Projekt gehören."
+"Ungültige User-Story-id, um nach davor zu bewegen. Die User-Story muss zu "
+"demselben Projekt und Meilenstein gehören."
 
 #: taiga/projects/userstories/validators.py:165
 #: taiga/projects/userstories/validators.py:252
 msgid "Invalid user story ids. All stories must belong to the same project."
 msgstr ""
+"Ungültige User Story-IDs. Alle User-Storys müssen zum selben Projekt gehören."
 
 #: taiga/projects/userstories/validators.py:216
 msgid ""
 "Invalid user story id to move after. The user story must belong to the same "
 "project, status and swimlane."
 msgstr ""
+"User-Story-ID zum dahinter verschieben ist ungültig. Die Benutzergeschichte "
+"muss zu demselben Projekt, Status und Swimlane gehören."
 
 #: taiga/projects/userstories/validators.py:240
 msgid ""
 "Invalid user story id to move before. The user story must belong to the same "
 "project, status and swimlane."
 msgstr ""
+"User-Story-ID zum davor verschieben ist ungültig. Die Benutzergeschichte "
+"muss zu demselben Projekt, Status und Swimlane gehören."
 
 #: taiga/projects/validators.py:52
 msgid "There's no project with that id"
@@ -4941,11 +5029,11 @@ msgstr "Es gibt kein Projekt mit dieser id"
 
 #: taiga/projects/validators.py:165
 msgid "The user yet exists in the project"
-msgstr ""
+msgstr "Der Benutzer existiert noch im Projekt"
 
 #: taiga/projects/validators.py:170
 msgid "Invalid operation"
-msgstr ""
+msgstr "Ungültiger Vorgang"
 
 #: taiga/projects/validators.py:182
 msgid "Invalid role for the project"
@@ -4953,7 +5041,7 @@ msgstr "Ungültige Rolle für dieses Projekt"
 
 #: taiga/projects/validators.py:197 taiga/projects/validators.py:260
 msgid "The user must be a valid contact"
-msgstr ""
+msgstr "Der Benutzer muss ein gültiger Kontakt sein"
 
 #: taiga/projects/validators.py:218
 msgid "The project owner must be admin."
@@ -4967,6 +5055,7 @@ msgstr ""
 #: taiga/projects/validators.py:275
 msgid "Invalid role ids. All roles must belong to the same project."
 msgstr ""
+"Ungültige Rollen-IDs. Alle Rollen müssen dem gleichen Projekt angehören."
 
 #: taiga/projects/validators.py:299
 msgid "Default options"
@@ -5031,7 +5120,7 @@ msgstr "href"
 
 #: taiga/telemetry/models.py:18
 msgid "instance id"
-msgstr ""
+msgstr "Instanzen-ID"
 
 #: taiga/timeline/signals.py:54
 msgid "Check the history API for the exact diff"
@@ -5063,43 +5152,45 @@ msgstr "Mitgliedschaften"
 
 #: taiga/users/admin.py:141
 msgid "PERSONAL INFO"
-msgstr ""
+msgstr "PERSÖNLICHE INFO"
 
 #: taiga/users/admin.py:142
 msgid "EXTRA INFO"
-msgstr ""
+msgstr "ZUSATZ-INFO"
 
 #: taiga/users/admin.py:144
 msgid "PERMISSIONS"
-msgstr ""
+msgstr "BERECHTIGUNGEN"
 
 #: taiga/users/admin.py:145
 msgid "IMPORTANT DATES"
-msgstr ""
+msgstr "WICHTIGE TERMINE"
 
 #: taiga/users/admin.py:146
 msgid "PROJECT OWNERSHIPS RESTRICTIONS"
-msgstr ""
+msgstr "PROJEKT LEITUNGSEINSCHRÄNKUNGEN"
 
 #: taiga/users/admin.py:148
 msgid "PROJECT OWNERSHIPS STATS"
-msgstr ""
+msgstr "PROJEKT LEITUNGSEINSSTATISTIKEN"
 
 #: taiga/users/admin.py:169
 msgid "Private projects owned"
 msgstr "Geleitete private Projekte"
 
 #: taiga/users/admin.py:175
+#, fuzzy
 msgid "Private memberships owned"
-msgstr ""
+msgstr "Persönliche Mitgliedschaften"
 
 #: taiga/users/admin.py:193
 msgid "Public projects owned"
 msgstr "Geleitete öffentliche Projekte"
 
 #: taiga/users/admin.py:199
+#, fuzzy
 msgid "Public memberships owned"
-msgstr ""
+msgstr "Öffentliche Mitgliedschaften"
 
 #: taiga/users/api.py:123
 msgid "Duplicated email"
@@ -5107,7 +5198,7 @@ msgstr "Doppelte E-Mail"
 
 #: taiga/users/api.py:125
 msgid "Invalid email"
-msgstr ""
+msgstr "Ungültige E-Mail"
 
 #: taiga/users/api.py:163
 msgid "Invalid username or email"
@@ -5115,7 +5206,7 @@ msgstr "Ungültiger Benutzername oder E-Mail"
 
 #: taiga/users/api.py:172
 msgid "Mail sent successfully!"
-msgstr ""
+msgstr "E-Mail erfolgreich gesendet!"
 
 #: taiga/users/api.py:210
 msgid "Current password parameter needed"
@@ -5127,7 +5218,7 @@ msgstr "Neuer Passwort Parameter benötigt"
 
 #: taiga/users/api.py:216
 msgid "Invalid password length at least 6 characters needed"
-msgstr ""
+msgstr "Ungültige Passwortlänge, mindestens 6 Zeichen erforderlich"
 
 #: taiga/users/api.py:219
 msgid "Invalid current password"
@@ -5146,11 +5237,11 @@ msgstr "Ungültig. Sind Sie sicher, dass das Token korrekt ist?"
 
 #: taiga/users/api.py:344
 msgid "Email address already verified"
-msgstr ""
+msgstr "E-Mail-Adresse bereits bestätigt"
 
 #: taiga/users/api.py:346
 msgid "Unable to verify this email address"
-msgstr ""
+msgstr "Nicht in der Lage, diese E-Mail-Adresse zu bestätigen"
 
 #: taiga/users/api.py:349
 msgid "Mail sended successful!"
@@ -5196,11 +5287,11 @@ msgstr ""
 
 #: taiga/users/models.py:130
 msgid "staff status"
-msgstr ""
+msgstr "Personalstatus"
 
 #: taiga/users/models.py:131
 msgid "Designates whether the user can log into this admin site."
-msgstr ""
+msgstr "Bezeichnet, ob sich der Benutzer an dieser Admin-Website anmelden kann."
 
 #: taiga/users/models.py:137
 msgid "biography"
@@ -5220,11 +5311,11 @@ msgstr "Datum der Stornierung"
 
 #: taiga/users/models.py:143
 msgid "accepted terms"
-msgstr ""
+msgstr "akzeptierte Bedingungen"
 
 #: taiga/users/models.py:144
 msgid "new terms read"
-msgstr ""
+msgstr "neue Bedingungen gelesen"
 
 #: taiga/users/models.py:146
 msgid "default language"
@@ -5251,22 +5342,28 @@ msgid "new email address"
 msgstr "neue E-Mail Adresse"
 
 #: taiga/users/models.py:166
+#, fuzzy
 msgid "max number of owned private projects"
-msgstr ""
+msgstr "max. Anzahl persönlicher Projekte"
 
 #: taiga/users/models.py:169
 msgid "max number of owned public projects"
-msgstr ""
+msgstr "max. Anzahl der eigenen öffentlichen Projekte"
 
 #: taiga/users/models.py:172
 msgid ""
 "max number of memberships of different users for all owned private project"
 msgstr ""
+"max. Anzahl der Mitgliedschaft verschiedener Nutzer für jedes persönliche "
+"Projekt"
 
 #: taiga/users/models.py:177
+#, fuzzy
 msgid ""
 "max number of memberships of different users for all owned public project"
 msgstr ""
+"max. Anzahl der Mitgliedschaft verschiedener Benutzer für alle im Besitz "
+"befindlichen öffentlichen Projekte"
 
 #: taiga/users/models.py:305
 msgid "permissions"
@@ -5288,6 +5385,15 @@ msgid ""
 "    <p><small>%(signature)s</small></p>\n"
 "    "
 msgstr ""
+"\n"
+"    <h1> Ändern Sie Ihre E-Mail</h1>\n"
+"    <p>Hallo %(full_name)s,<br /> bitte bestätigen Sie Ihre E-Mail</p>\n"
+"    <a class=\"button\" href=\"%(url)s\" title=\"E-Mail bestätigen\">E-Mail "
+"bestätigen</a>\n"
+"    <p> Sie können diese Nachricht ignorieren, wenn Sie sie nicht "
+"angefordert haben.</p>\n"
+"    <p><small>%(signature)s</small></p>\n"
+"    "
 
 #: taiga/users/templates/emails/change_email-body-text.jinja:9
 #, python-format
@@ -5302,6 +5408,16 @@ msgid ""
 "---\n"
 "%(signature)s\n"
 msgstr ""
+"\n"
+"Hallo %(full_name)s, bitte bestätigen Sie Ihre E-Mail\n"
+"\n"
+"%(url)s\n"
+"\n"
+"Sie können diese Nachricht ignorieren, wenn Sie sie nicht angefordert haben."
+"\n"
+"\n"
+"---\n"
+"%(signature)s\n"
 
 #: taiga/users/templates/emails/change_email-subject.jinja:9
 msgid "[Taiga] Change email"
@@ -5319,6 +5435,16 @@ msgid ""
 "    <p><small>%(signature)s</small></p>\n"
 "    "
 msgstr ""
+"\n"
+"    <h1>Ihr Passwort wiederherstellen</h1>\n"
+"    <p>Hallo %(full_name)s, <br /> Sie baten, Ihr Passwort "
+"wiederherzustellen</p>\n"
+"    <a class=\"button\" href=\"%(url)s\" title=\"Ihr Passwort "
+"wiederherstellen\">Ihr Passwort wiederherstellen</a>\n"
+"    <p> Sie können diese Nachricht ignorieren, wenn Sie sie nicht "
+"angefordert haben.</p>\n"
+"    <p><small>%(signature)s</small></p>\n"
+"    "
 
 #: taiga/users/templates/emails/password_recovery-body-text.jinja:9
 #, python-format
@@ -5333,6 +5459,15 @@ msgid ""
 "---\n"
 "%(signature)s\n"
 msgstr ""
+"\n"
+"Hallo %(full_name)s, Sie baten, Ihr Passwort wiederherzustellen\n"
+"\n"
+"%(url)s\n"
+"\n"
+"Sie können diese Nachricht ignorieren, wenn Sie nicht anforderten.\n"
+"\n"
+"---\n"
+"%(signature)s\n"
 
 #: taiga/users/templates/emails/password_recovery-subject.jinja:9
 msgid "[Taiga] Password recovery"
@@ -5347,6 +5482,11 @@ msgid ""
 "email\">Confirm email</a>\n"
 "            "
 msgstr ""
+"\n"
+"            <p>Bitte bestätigen Sie Ihre E-Mail</p>\n"
+"            <a class=\"button\" href=\"%(url)s\" title=\"E-Mail bestätigen\""
+">E-Mail bestätigen</a>\n"
+"            "
 
 #: taiga/users/templates/emails/registered_user-body-html.jinja:21
 #, python-format
@@ -5362,6 +5502,17 @@ msgid ""
 "        </td>\n"
 "        "
 msgstr ""
+"\n"
+"            <h2>Danke für die Registrierung in %(product_name)s</h2>\n"
+"            <p>Wir sind begeistert, dass Sie unserer wachsenden Community "
+"von Fachleuten beigetreten sind, die ihre Arbeitsweise revolutionieren und "
+"hoffen, dass Sie es genießen.</p>\n"
+"\n"
+"            <p>Noch Fragen? Geben Sie uns ein Hinweis, wenn Sie Hilfe "
+"benötigen, wir sind unter %(support_email)s erreichbar.</p>\n"
+"            <p><small>%(signature)s</small></p>\n"
+"            </td>\n"
+"        "
 
 #: taiga/users/templates/emails/registered_user-body-html.jinja:36
 #, python-format
@@ -5387,6 +5538,12 @@ msgid ""
 "We're thrilled you've joined our growing community of professionals "
 "revolutionizing their way of working and hope you enjoy it.\n"
 msgstr ""
+"\n"
+"Vielen Dank für die Anmeldung in %(product_name)s\n"
+"\n"
+"Wir freuen uns, dass Sie sich unserer wachsenden Fachgemeinschaft "
+"angeschlossen haben, die ihre Arbeitsweise revolutioniert und hofft, dass "
+"Sie es genießen.\n"
 
 #: taiga/users/templates/emails/registered_user-body-text.jinja:16
 #, python-format
@@ -5394,6 +5551,8 @@ msgid ""
 "\n"
 "Please confirm your email: %(url)s\n"
 msgstr ""
+"\n"
+"Bitte bestätigen Sie Ihre E-Mail: %(url)s\n"
 
 #: taiga/users/templates/emails/registered_user-body-text.jinja:21
 #, python-format
@@ -5404,6 +5563,11 @@ msgid ""
 "--\n"
 "%(signature)s\n"
 msgstr ""
+"\n"
+"Haben Sie Fragen? Geben Sie uns einen Hinweis, wenn Sie Hilfe benötigen, wir "
+"sind unter %(support_email)s erreichbar.\n"
+"--\n"
+"%(signature)s\n"
 
 #: taiga/users/templates/emails/registered_user-body-text.jinja:26
 #, python-format
@@ -5430,6 +5594,15 @@ msgid ""
 "    <p><small>%(signature)s</small></p>\n"
 "    "
 msgstr ""
+"\n"
+"    <h1>Ihre E-Mail bestätigen</h1>\n"
+"    <p>Hello %(full_name)s,<br />Bitte überprüfen Sie Ihre E-Mail</p>\n"
+"    <a class=\"button\" href=\"%(url)s\" title=\"Verify email\">E-Mail "
+"bestätigen</a>\n"
+"    <p> Sie können diese Nachricht ignorieren, wenn Sie sie nicht "
+"anforderten.</p>\n"
+"    <p><small>%(signature)s</small></p>\n"
+"    "
 
 #: taiga/users/templates/emails/send_verification-body-text.jinja:9
 #, python-format
@@ -5444,10 +5617,19 @@ msgid ""
 "---\n"
 "%(signature)s\n"
 msgstr ""
+"\n"
+"Hallo %(full_name)s, bitte überprüfen Sie Ihre E-Mail\n"
+"\n"
+"%(url)s\n"
+"\n"
+"Sie können diese Nachricht ignorieren, wenn Sie sie nicht anforderten.\n"
+"\n"
+"---\n"
+"%(signature)s\n"
 
 #: taiga/users/templates/emails/send_verification-subject.jinja:9
 msgid "[Taiga] Verify email"
-msgstr ""
+msgstr "[Taiga] E-Mail überprüfen"
 
 #: taiga/users/validators.py:38
 msgid "invalid"
@@ -5459,7 +5641,7 @@ msgstr "Ungültiger Benutzername. Versuchen Sie es mit einem anderen."
 
 #: taiga/users/validators.py:76
 msgid "Read new terms has to be true'"
-msgstr ""
+msgstr "Neue Bedingungen gelesen muss wahr sein'"
 
 #: taiga/userstorage/api.py:42
 msgid ""
@@ -5506,7 +5688,7 @@ msgstr "Dauer"
 
 #: taiga/webhooks/validators.py:32
 msgid "Not allowed IP Address"
-msgstr ""
+msgstr "IP-Adresse nicht erlaubt"
 
 #~ msgid "Personal info"
 #~ msgstr "Personal Information"

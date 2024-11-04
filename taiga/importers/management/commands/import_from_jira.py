@@ -3,7 +3,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 #
-# Copyright (c) 2021-present Kaleidos Ventures SL
+# Copyright (c) 2021-present Kaleidos INC
 
 from django.core.management.base import BaseCommand
 from django.db.models import Q
@@ -24,7 +24,7 @@ class Command(BaseCommand):
                             help='Server address (default: https://jira.atlassian.com)',
                             default="https://jira.atlassian.com")
         parser.add_argument('--project-id', dest="project_id", type=str,
-                            help='Project ID or full name (ex: kaleidos-ventures/taiga-back)')
+                            help='Project ID or full name (ex: taigaio/taiga-back)')
         parser.add_argument('--project-type', dest="project_type", type=str,
                             help='Project type in jira: project or board')
         parser.add_argument('--template', dest='template', default="scrum",

@@ -3,7 +3,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 #
-# Copyright (c) 2021-present Kaleidos Ventures SL
+# Copyright (c) 2021-present Kaleidos INC
 
 from .common import *
 import os
@@ -12,7 +12,8 @@ import os
 #########################################
 ## GENERIC
 #########################################
-DEBUG = False
+
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 DATABASES = {
     'default': {
@@ -23,6 +24,7 @@ DATABASES = {
         'HOST': os.getenv('POSTGRES_HOST'),
         'PORT': os.getenv('POSTGRES_PORT','5432'),
         'OPTIONS': {'sslmode': os.getenv('POSTGRES_SSLMODE','disable')},
+        'DISABLE_SERVER_SIDE_CURSORS': os.getenv('POSTGRES_DISABLE_SERVER_SIDE_CURSORS', 'False') == 'True',
     }
 }
 SECRET_KEY = os.getenv('TAIGA_SECRET_KEY')
@@ -37,9 +39,13 @@ SITES = {
         "front": { "name": "front", "scheme": TAIGA_SITES_SCHEME, "domain": f"{ TAIGA_SITES_DOMAIN }{ FORCE_SCRIPT_NAME }" }
 }
 
+LANGUAGE_CODE = os.getenv("LANGUAGE_CODE", "en-us")
+
 INSTANCE_TYPE = "D"
 
-WEBHOOKS_ENABLED = True
+WEBHOOKS_ENABLED = os.getenv('WEBHOOKS_ENABLED', 'True') == 'True'
+WEBHOOKS_ALLOW_PRIVATE_ADDRESS = os.getenv('WEBHOOKS_ALLOW_PRIVATE_ADDRESS', 'False') == 'True'
+WEBHOOKS_ALLOW_REDIRECTS = os.getenv('WEBHOOKS_ALLOW_REDIRECTS', 'False') == 'True'
 
 # Setting DEFAULT_PROJECT_SLUG_PREFIX to false
 # removes the username from project slug

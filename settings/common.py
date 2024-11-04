@@ -3,7 +3,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 #
-# Copyright (c) 2021-present Kaleidos Ventures SL
+# Copyright (c) 2021-present Kaleidos INC
 
 import os
 import os.path
@@ -70,7 +70,7 @@ PASSWORD_HASHERS = [
 
 # Default configuration for reverse proxy
 USE_X_FORWARDED_HOST = True
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTOCOL", "https")
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 # Errors report configuration
 SEND_BROKEN_LINK_EMAILS = True
@@ -623,7 +623,7 @@ SR = {
     "taigaio_url": "https://taiga.io",
     "social": {
         "twitter_url": "https://twitter.com/taigaio",
-        "github_url": "https://github.com/kaleidos-ventures",
+        "github_url": "https://github.com/taigaio",
     },
     "support": {
         "url": "https://tree.taiga.io/support/",

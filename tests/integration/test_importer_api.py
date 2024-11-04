@@ -3,7 +3,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 #
-# Copyright (c) 2021-present Kaleidos Ventures SL
+# Copyright (c) 2021-present Kaleidos INC
 
 import pytest
 import base64
@@ -1220,6 +1220,26 @@ def test_valid_dump_import_error_without_enough_public_projects_slots(client, se
     assert response["Taiga-Info-Project-Memberships"] == "1"
     assert response["Taiga-Info-Project-Is-Private"] == "False"
     assert Project.objects.filter(slug="public-project-without-slots").count() == 0
+
+
+def test_invalid_dump_json_list(client, settings):
+    user = f.UserFactory.create(max_public_projects=0)
+    client.login(user)
+
+    url = reverse("importer-load-dump")
+
+    data = ContentFile(bytes(json.dumps([{
+        "slug": "public-project-without-slots",
+        "name": "Valid project",
+        "description": "Valid project desc",
+        "is_private": False
+    }]), "utf-8"))
+    data.name = "test"
+
+    response = client.post(url, {'dump': data})
+    assert response.status_code == 400
+
+
 
 
 def test_valid_dump_import_error_without_enough_private_projects_slots(client, settings):

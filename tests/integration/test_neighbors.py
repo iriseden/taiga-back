@@ -3,7 +3,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 #
-# Copyright (c) 2021-present Kaleidos Ventures SL
+# Copyright (c) 2021-present Kaleidos INC
 
 import pytest
 
@@ -36,6 +36,31 @@ class TestUserStories:
 
         assert neighbors.left == us1
         assert neighbors.right == us3
+
+    def test_results_set_repeat_id(self):
+        project = f.ProjectFactory.create()
+
+        us1 = f.UserStoryFactory.create(project=project)
+        f.RolePointsFactory.create(user_story=us1)
+        f.RolePointsFactory.create(user_story=us1)
+
+        neighbors = n.get_neighbors(us1, results_set=UserStory.objects.get_queryset().filter(role_points__isnull=False))
+
+        assert neighbors.right == us1
+
+    def test_results_set_left_repeat_id(self):
+        project = f.ProjectFactory.create()
+
+        us1 = f.UserStoryFactory.create(project=project)
+        f.RolePointsFactory.create(user_story=us1)
+        f.RolePointsFactory.create(user_story=us1)
+
+        us2 = f.UserStoryFactory.create(project=project)
+        f.RolePointsFactory.create(user_story=us2)
+
+        neighbors = n.get_neighbors(us2, results_set=UserStory.objects.get_queryset().filter(role_points__isnull=False))
+
+        assert neighbors.left == us1
 
     def test_filtered_by_tags(self):
         tag_names = ["test"]

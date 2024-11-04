@@ -3,7 +3,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 #
-# Copyright (c) 2021-present Kaleidos Ventures SL
+# Copyright (c) 2021-present Kaleidos INC
 
 from django.utils.translation import gettext as _
 
@@ -343,7 +343,7 @@ class TrelloImporter:
             data = self._client.download(attachment['url'])
 
             att = Attachment(
-                owner=users_bindings.get(attachment['idMember'], self._user),
+                owner=users_bindings.get(attachment['idMember'], self._user) or self._user,
                 project=us.project,
                 content_type=ContentType.objects.get_for_model(UserStory),
                 object_id=us.id,
@@ -352,7 +352,9 @@ class TrelloImporter:
                 created_date=attachment['date'],
                 is_deprecated=False,
             )
-            att.attached_file.save(attachment['name'], ContentFile(data), save=True)
+
+            file_name = attachment['name'][:-1] if attachment['name'].endswith('/') else attachment['name']
+            att.attached_file.save(file_name, ContentFile(data), save=True)
 
             UserStory.objects.filter(id=us.id, created_date__gt=attachment['date']).update(
                 created_date=attachment['date']
@@ -452,19 +454,19 @@ class TrelloImporter:
         elif action['type'] == "convertToCardFromCheckItem":
             UserStory.objects.filter(id=us.id, created_date__gt=action['date']).update(
                 created_date=action['date'],
-                owner=users_bindings.get(action["idMemberCreator"], self._user)
+                owner=users_bindings.get(action["idMemberCreator"], self._user) or self._user
             )
             result['hist_type'] = HistoryType.create
         elif action['type'] == "copyCommentCard":
             UserStory.objects.filter(id=us.id, created_date__gt=action['date']).update(
                 created_date=action['date'],
-                owner=users_bindings.get(action["idMemberCreator"], self._user)
+                owner=users_bindings.get(action["idMemberCreator"], self._user) or self._user
             )
             result['hist_type'] = HistoryType.create
         elif action['type'] == "createCard":
             UserStory.objects.filter(id=us.id, created_date__gt=action['date']).update(
                 created_date=action['date'],
-                owner=users_bindings.get(action["idMemberCreator"], self._user)
+                owner=users_bindings.get(action["idMemberCreator"], self._user) or self._user
             )
             result['hist_type'] = HistoryType.create
         elif action['type'] == "updateCard":
@@ -473,7 +475,11 @@ class TrelloImporter:
                 result['change_new']["description"] = str(action['data']['card'].get('desc', ''))
                 result['change_old']["description_html"] = mdrender(us.project, str(action['data']['old'].get('desc', '')))
                 result['change_new']["description_html"] = mdrender(us.project, str(action['data']['card'].get('desc', '')))
-            if 'idList' in action['data']['old']:
+            if (
+                'idList' in action['data']['old']
+                and action["data"]["old"]["idList"] in statuses
+                and action["data"]["card"]["idList"] in statuses
+            ):
                 old_status_name = statuses[action['data']['old']['idList']]['name']
                 result['change_old']["status"] = us.project.us_statuses.get(name=old_status_name).id
                 new_status_name = statuses[action['data']['card']['idList']]['name']

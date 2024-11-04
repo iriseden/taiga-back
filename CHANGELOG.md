@@ -1,8 +1,35 @@
 # Changelog
 
-## 6.7.2 (unreleased)
+## 6.8.2 (unreleased)
 
 - ...
+
+## 6.8.1 (2024-07-23)
+
+- Changes to queries to improve their performance.
+- Fix: webhooks error.
+- Fix: multiple object returned on neighbour.
+- Update locales.
+
+## 6.8.0 (2024-04-03)
+
+- Changed the namespace of the repositories, from kaleidos-ventures to taigaio
+- Fix SECURE_PROXY_SSL_HEADER, adjust header name to match standard (thanks [@ChriFo](https://github.com/ChriFo))
+- Fix error appliying migrations: "resource module not found" (thanks [@VirajAdiga](https://github.com/VirajAdiga))
+- Allow to disable the use of server-side cursors to support pgbouncer (thanks [@ordinary-dev](https://github.com/ordinary-dev))
+- Inmproved RabbitMQ host configuration for Taiga events and asynchrous tasks (thanks [@iriseden](https://github.com/iriseden))
+- Make options for webhooks configurable via env vars in docker (thanks [@slakner](https://github.com/slakner))
+
+## 6.7.3 (2024-02-21)
+
+- GitHub Importer: fix import error with issues associated to a closed milestone.
+- Trello Importer: fix import error with attachemts without owner.
+- Trello Importer: fix import error when attachemt name ends with '/'.
+- User Story Report: add epic refs.
+
+## 6.7.2 (2024-02-16)
+
+- Docker: DEBUG and LANGUAGE_CODE settings are customizable.
 
 ## 6.7.1 (2023-09-20)
 
